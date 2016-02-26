@@ -27,18 +27,21 @@ public class GameSetting extends Dialog {
         setCancelable(false);
     }
     public void ReadGameSetting(){
-        if (ConfigAbout.Readconfig("Music") != null) {
-            this.musicValue = Integer.valueOf(ConfigAbout.Readconfig("Music")).intValue();
-        }
-        else {
+        try{
             this.musicValue = 30;
-        }
-        if (ConfigAbout.Readconfig("Sound") != null) {
-            this.soundValue = Integer.valueOf(ConfigAbout.Readconfig("Sound")).intValue();
-        }
-        else{
+            this.soundValue = 70;
+            if (ConfigAbout.Readconfig("Music") != null) {
+                this.musicValue = Integer.valueOf(ConfigAbout.Readconfig("Music")).intValue();
+            }
+            if (ConfigAbout.Readconfig("Sound") != null) {
+                this.soundValue = Integer.valueOf(ConfigAbout.Readconfig("Sound")).intValue();
+            }
+
+        }catch (Exception ex){
+            this.musicValue = 30;
             this.soundValue = 70;
         }
+
 
 
 

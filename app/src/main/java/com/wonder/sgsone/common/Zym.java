@@ -1,6 +1,8 @@
 package com.wonder.sgsone.common;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.util.Log;
 
 import com.wonder.sgsone.MainActivity;
 
@@ -26,5 +28,20 @@ public class Zym {
             return (int)paramFloat;
         }
         return Math.round(MainActivity.scaled * paramFloat);
+    }
+    public static void pt(Object object) {
+        Log.i("sgs",object.toString());
+    }
+
+    public static void pt(String msg) {
+        Log.i("sgs",msg);
+    }
+
+    public static void drawString(Canvas canvas, String str, int i3, int i, int i1) {
+
+    }
+
+    public static void displayStr(Canvas canvas, String str, int i, int i1, int i2) {
+
     }
 }

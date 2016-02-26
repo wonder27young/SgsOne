@@ -1,5 +1,6 @@
 package com.wonder.sgsone.common;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.wonder.sgsone.MainActivity;
@@ -14,8 +15,9 @@ public class ConfigAbout {
 
     public static String Readconfig(String configName)
     {
-        SharedPreferences localSharedPreferences = MainActivity.mSwitchView.mActivity.getSharedPreferences(sConName, 0);
+        SharedPreferences localSharedPreferences = MainActivity.mSwitchView.mActivity.getSharedPreferences(sConName, Context.BIND_AUTO_CREATE);
         if (localSharedPreferences == null) {
+
             return "";
         }
         if (localSharedPreferences.contains(configName)) {

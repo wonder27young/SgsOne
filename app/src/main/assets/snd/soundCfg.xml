@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--2014-12-9 16-00-->
+<!--
+注释：
+	1, Type, 1 - 固定短语， 2 - 技能声音， 3 - 死亡音效；
+	2, ID，	如果Type="1"：ID表示固定短语的编号；
+			如果Type="2"：ID表示技能id，一个技能有多个音效，branch表示该技能的分支音效；
+			如果Type="3"：ID表示武将id；
+	3，发送聊天消息的时候，将添加消息头，用来标示这些信息"{a:b:c}text";
+			a: type;
+			b: 各自type对应的id；
+			c: type=1时，表示性别；type=2时，表示branch；type=3时，可以忽略。
+			
+武将阵亡音效CHR _武将ID
+        例如：
+            刘备CHR_1.OGG
+            关羽CHR_2.OGG
+            张飞CHR_3.OGG
+            
+技能音效SKILL_技能ID_第一个音效
+
+        例如：
+            仁德SKILL_31_1.OGG
+                SKILL_31_2.OGG
+                
+特殊情况：恩怨（恩）            SKILL_407_1.OGG
+                                SKILL_407_2.OGG
+          恩怨（怨）            SKILL_407_3.OGG
+                                SKILL_407_4.OGG
+          义从大于2血           SKILL_204_1.OGG
+          义从小于2血           SKILL_204_2.OGG
+          琴音回血              SKILL_305_1.OGG
+          琴音伤血              SKILL_305_2.OGG
+          观星（姜维）          SKILL_35_3.OGG
+                                SKILL_35_4.OGG
+          激将（刘禅）          SKILL_32_3.OGG
+                                SKILL_32_4.OGG
+          英姿（孙策）          SKILL_55_3.OGG
+                                SKILL_55_4.OGG
+          英魂（孙策）          SKILL_108_3.OGG
+                                SKILL_108_4.OGG
+          离魂（发动）          SKILL_209_1.OGG
+          离魂（返还）          SKILL_209_2.OGG
+          颂词（摸牌）          SKILL_213_1.OGG
+          颂词（弃牌）          SKILL_213_2.OGG
+          流离（大小乔）        SKILL_61_3.OGG
+                                SKILL_61_4.OGG
+          天香（大小乔）        SKILL_75_3.OGG
+                                SKILL_75_4.OGG
+          星舞（放置牌时）      SKILL_219_1.OGG
+          星舞（造成伤害）      SKILL_219_2.OGG
+          挑衅（夏侯霸）        SKILL_125_3.OGG
+                                SKILL_125_4.OGG
+          咆哮（夏侯霸）        SKILL_34_3.OGG
+                                SKILL_34_4.OGG
+          神速（夏侯霸）        SKILL_73_3.OGG
+                                SKILL_73_4.OGG
+          援护（武器）          SKILL_214_1
+          援护（马）            SKILL_214_2
+          援护（防具）          SKILL_214_3
+          咒缚（放置时）        SKILL_223_1
+          咒缚（判定时）        SKILL_223_2
+          咒缚（收回判定牌时）  SKILL_223_3
+          醇醪（放酒时）        SKILL_432_1.OGG
+          醇醪（用酒时）        SKILL_432_2.OGG
+          将驰（多摸牌）        SKILL_420_1.OGG
+          将驰（少摸牌）        SKILL_420_2.OGG
+          颂词（摸牌）          SKILL_213_1.OGG
+          颂词（弃牌）          SKILL_213_2.OGG
+          陷嗣（放置牌时）      skill_449_1
+                                skill_449_2
+          陷嗣（被杀时）        skill_449_3
+                                skill_449_4
+          恃勇（红杀）          skill_435_1
+          恃勇（酒杀）          skill_435_2
+          新法正恩怨恩          skill_460_1
+                    怨          skill_460_2
+          新法正眩惑给牌        skill_461_1
+                    拿牌        skill_461_2
+          新张角鬼道            skill_79_3
+                                skill_79_4
+          新张角黄天            skill_80_3
+                                skill_80_4
+          身份场诸葛瑾缓释      skill_501_3
+                                skill_501_4
+          身份场诸葛瑾弘援      skill_502_3
+                                skill_502_4
+          身份场诸葛瑾明哲      skill_503_3
+                                skill_503_4
+          新关张咆哮            skill_34_1_188
+          新关张武圣            skill_33_1_188
+          界关羽武圣            skill_33_1_300
+                                skill_33_2_300
+          界曹操护驾            skill_43_1_311
+                                skill_43_2_311
+          界华佗急救            skill_64_1_318
+                                skill_64_2_318
+          界吕蒙克己            skill_63_1_306
+                                skill_63_2_306
+          界吕蒙攻心            skill_304_1_306
+                                skill_304_2_306
+          界公孙瓒（变+1）      skill_204_1_320
+                  （变-1）      skill_204_2_320
+          界大乔用乐不思蜀      skill_714_1
+              移除乐不思蜀      skill_714_2
+          界大乔流离            skill_61_1_309
+                                skill_61_2_309
+          界张飞咆哮            skill_34_1_301
+                                skill_34_2_301
+          界赵云龙胆            skill_37_1_302
+                                skill_37_2_302
+		 身份场潘凤狂斧         skill_2111_3
+                                skill_2111_4
+		 大乔国色（1V1专用）    skill_41_3
+								skill_41_4
+		 貂蝉闭月（1V1专用）    skill_67_5
+								skill_67_6
+		 关羽武圣（1V1专用）    skill_33_3
+								skill_33_4
+		 马超铁骑（1V1专用）    skill_38_3
+								skill_38_4
+		 马超骁袭（马超1V1专用）skill_4052_1
+								skill_4052_2
+		 蛮裔（孟获1V1专用）  	skill_4054_1
+								skill_4054_2
+		 孟获再起（1V1专用）    skill_116_3
+								skill_116_4
+		 庞德猛进（1V1专用）    skill_100_3
+								skill_100_4
+		 骁袭（庞德1V1专用）   	skill_4052_3
+								skill_4052_4
+		 夏侯渊神速（1V1专用）  skill_73_5
+								skill_73_6
+		 孙尚香枭姬（1V1专用）  skill_41_3
+								skill_41_4
+		 闭月（1V1专用）       	skill_67_3
+								skill_67_4
+		 许褚裸衣（1V1专用）    skill_50_3
+								skill_50_4
+
+
+-->
+<Sounds>
+	<!-- ============= -->
+	<!-- Fixed phrases -->
+	<!-- ============= -->
+	<Sound type="1" ID="0" text="能不能快一点儿呀，兵贵神速啊"/>
+	<Sound type="1" ID="1" text="主公，别开枪，自己人"/>
+	<Sound type="1" ID="2" text="小内再不跳，后面还怎么玩儿啊"/>
+	<Sound type="1" ID="3" text="你们怎么忍心就这么让我酱油了"/>
+	<Sound type="1" ID="4" text="我，我惹你们了吗"/>
+	<Sound type="1" ID="5" text="姑娘，你真是条汉子"/>
+	<Sound type="1" ID="6" text="三十六计，走为上，容我去去便回"/>
+	<Sound type="1" ID="7" text="人心散了，队伍不好带啊"/>
+	<Sound type="1" ID="8" text="昏君，昏君啊"/>
+	<Sound type="1" ID="9" text="风吹鸡蛋壳，牌去人安乐"/>
+	<Sound type="1" ID="10" text="小内啊，您老悠着点儿"/>
+	<Sound type="1" ID="11" text="不好意思，刚才卡了"/>
+	<Sound type="1" ID="12" text="你可以打的再烂一点儿吗"/>
+	<Sound type="1" ID="13" text="哥们儿，给力点儿行吗"/>
+	<Sound type="1" ID="14" text="哥，交个朋友吧"/>
+	<Sound type="1" ID="15" text="妹子，交个朋友吧"/>
+	<!-- ============================= -->
+	<!-- Character spell sound effects -->
+	<!-- ============================= -->
+	<!-- 刘备 -->
+	<Sound type="2" ID="31" branch="1" text="以德服人。"/>
+	<Sound type="2" ID="31" branch="2" text="惟贤惟德，能服于人。"/>
+	<Sound type="2" ID="32" branch="1" chrId="1" text="蜀将何在？"/>
+	<Sound type="2" ID="32" branch="2" chrId="1" text="尔等敢应战否？"/>
+	<!-- 关羽 -->
+	<Sound type="2" ID="33" branch="1" text="看尔乃插标卖首。"/>
+	<Sound type="2" ID="33" branch="2" text="关羽在此，尔等受死。"/>
+	<!-- 张飞 -->
+	<Sound type="2" ID="34" branch="1" chrId="3" text="燕人张飞在此！"/>
+	<Sound type="2" ID="34" branch="2" chrId="3" text="啊啊啊啊！"/>
+	<!-- 诸葛亮 -->
+	<Sound type="2" ID="35" branch="1" chrId="4" text="知天易，逆天难。"/>
+	<Sound type="2" ID="35" branch="2" chrId="4" text="观今夜之天象，知天下之大事。"/>
+	<!-- 赵云 -->
+	<Sound type="2" ID="37" branch="1" text="吾乃常山赵子龙也。"/>
+	<Sound type="2" ID="37" branch="2" text="能进能退乃真正法器！"/>
+	<!-- 马超 -->
+	<Sound type="2" ID="38" branch="2" text="全军突击！"/>
+	<!-- 黄月英 -->
+	<Sound type="2" ID="39" branch="1" text="哼哼……"/>
+	<!-- 孙尚香 -->
+	<Sound type="2" ID="41" branch="2" text="看我的厉害。"/>
+	<Sound type="2" ID="69" branch="1" text="他好我也好。"/>
+	<Sound type="2" ID="69" branch="2" text="夫君，身体要紧。"/>
+	<!-- 曹操 -->
+	<Sound type="2" ID="42" branch="1" text="吾好梦中杀人。"/>
+	<Sound type="2" ID="42" branch="2" text="宁教我负天下人，休教天下人负我！"/>
+	<Sound type="2" ID="43" branch="1" text="魏将何在？"/>
+	<Sound type="2" ID="43" branch="2" text="来人，护驾！"/>
+	<!-- 张辽 -->
+	<Sound type="2" ID="44" branch="1" text="拿来吧。"/>
+	<Sound type="2" ID="44" branch="2" text="没想到吧。"/>
+	<!-- 甄姬 -->
+	<Sound type="2" ID="45" branch="1" text="飘摇兮若流风之回雪"/>
+	<Sound type="2" ID="45" branch="2" text="仿佛兮若轻云之蔽月"/>
+	<Sound type="2" ID="46" branch="1" text="体迅飞凫，飘忽若神"/>
+	<Sound type="2" ID="46" branch="2" text="凌波微步，罗袜生尘"/>
+	<!-- 司马懿 -->
+	<Sound type="2" ID="47" branch="1" text="出来混，早晚要还的。"/>
+	<Sound type="2" ID="47" branch="2" text="下次注意点。"/>
+	<Sound type="2" ID="48" branch="1" text="吾乃天命之子。"/>
+	<Sound type="2" ID="48" branch="2" text="天命？哈哈哈哈……"/>
+	<!-- 夏侯惇 -->
+	<Sound type="2" ID="49" branch="1" text="以彼之道，还施彼身。"/>
+	<Sound type="2" ID="49" branch="2" text="鼠辈，竟敢伤我！"/>
+	<!-- 许褚 -->
+	<Sound type="2" ID="50" branch="1" text="谁来和我大战三百回合！"/>
+	<Sound type="2" ID="50" branch="2" text="脱！"/>
+	<!-- 郭嘉 -->
+	<Sound type="2" ID="51" branch="1" text="罢了…"/>
+	<Sound type="2" ID="51" branch="2" text="也好…"/>
+	<Sound type="2" ID="52" branch="1" text="哦？…"/>
+	<Sound type="2" ID="52" branch="2" text="就这样吧…"/>
+	<!-- 孙权 -->
+	<Sound type="2" ID="53" branch="1" text="且慢！"/>
+	<Sound type="2" ID="53" branch="2" text="容我三思。"/>
+	<Sound type="2" ID="54" branch="1" text="有汝辅佐，甚好。"/>
+	<Sound type="2" ID="54" branch="2" text="好舒服啊……"/>
+	<!-- 周瑜 -->
+	<Sound type="2" ID="55" branch="1" chrId="12" text="哈哈哈……"/>
+	<Sound type="2" ID="55" branch="2" chrId="12" text="汝等看好了！"/>
+	<Sound type="2" ID="56" branch="1" text="挣扎吧，在血和暗的深渊里！"/>
+	<Sound type="2" ID="56" branch="2" text="痛苦吧，在仇与恨的地狱中！"/>
+	<!-- 甘宁 -->
+	<Sound type="2" ID="57" branch="1" text="接招吧！"/>
+	<Sound type="2" ID="57" branch="2" text="你的牌太多了。"/>
+	<!-- 陆逊 -->
+	<Sound type="2" ID="59" branch="1" text="旧的不去，新的不来。"/>
+	<Sound type="2" ID="59" branch="2" text="牌不是万能的，但是没牌是万万不能的。"/>
+	<!-- 大乔 -->
+	<Sound type="2" ID="60" branch="1" text="你累了…"/>
+	<Sound type="2" ID="60" branch="2" text="请休息吧…"/>
+	<Sound type="2" ID="61" branch="1" chrId="13" text="你来嘛…"/>
+	<Sound type="2" ID="61" branch="2" chrId="13" text="交给你了。"/>
+	<!-- 黄盖 -->
+	<Sound type="2" ID="62" branch="1" text="赴汤蹈火，在所不辞！"/>
+	<Sound type="2" ID="62" branch="2" text="请鞭挞我吧，公瑾！"/>
+	<!-- 吕蒙 -->
+	<Sound type="2" ID="63" branch="1" text="不是不报，时候未到。"/>
+	<Sound type="2" ID="63" branch="2" text="留得青山在不怕没柴烧。"/>
+	<!-- 大乔 -->
+	<Sound type="2" ID="64" branch="1" text="救人一命，胜造七级浮屠。"/>
+	<Sound type="2" ID="64" branch="2" text="别紧张，有老夫呢。"/>
+	<Sound type="2" ID="65" branch="1" text="越老越要补啊。"/>
+	<Sound type="2" ID="65" branch="2" text="早睡早起，方能养生。"/>
+	<!-- 吕布 -->
+	<Sound type="2" ID="66" branch="1" text="神挡杀神，佛挡杀佛！"/>
+	<Sound type="2" ID="66" branch="2" text="谁能挡我！"/>
+	<!-- 貂蝉 -->
+	<Sound type="2" ID="67" branch="1" text="羡慕吧。"/>
+	<Sound type="2" ID="67" branch="2" text="失礼了。"/>
+	<Sound type="2" ID="68" branch="1" text="夫君，你要替妾身做主啊。"/>
+	<Sound type="2" ID="68" branch="2" text="呵呵……"/>
+	<!-- 黄忠 -->
+	<Sound type="2" ID="71" branch="1" text="百步穿杨。"/>
+	<Sound type="2" ID="71" branch="2" text="中！"/>
+	<!-- 魏延 -->
+	<Sound type="2" ID="72" branch="1" text="我会怕你吗？"/>
+	<Sound type="2" ID="72" branch="2" text="真是美味呀。"/>
+	<!-- 夏侯渊 -->
+	<Sound type="2" ID="73" branch="1" chrId="28" text="取汝首级犹如探囊取物！"/>
+	<Sound type="2" ID="73" branch="2" chrId="28" text="吾擅于千里袭人"/>
+	<!-- 曹仁 -->
+	<Sound type="2" ID="74" branch="1" text="我先休息一会儿。"/>
+	<Sound type="2" ID="74" branch="2" text="尽管来吧！"/>
+	<!-- 小乔 -->
+	<Sound type="2" ID="75" branch="1" chrId="30" text="接着哦～～"/>
+	<Sound type="2" ID="75" branch="2" chrId="30" text="替我挡着～～"/>
+	<!-- 周泰 -->
+	<Sound type="2" ID="77" branch="1" text="我绝不会倒下！"/>
+	<Sound type="2" ID="77" branch="2" text="还不够！"/>
+	<!-- 张角 -->
+	<Sound type="2" ID="78" branch="1" text="以我之真气合天地之造化。"/>
+	<Sound type="2" ID="78" branch="2" text="雷公助我！"/>
+	<Sound type="2" ID="79" branch="1" text="天下大势为我所控。"/>
+	<Sound type="2" ID="79" branch="2" text="哼哼哼……"/>
+	<Sound type="2" ID="80" branch="1" text="岁在甲子，天下大吉。"/>
+	<Sound type="2" ID="80" branch="2" text="苍天已死，黄天当立。"/>
+	<!-- 于吉 -->
+	<Sound type="2" ID="81" branch="1" text="你信么？"/>
+	<Sound type="2" ID="81" branch="2" text="猜猜看呐。"/>
+	<!-- 典韦 -->
+	<Sound type="2" ID="91" branch="1" text="看我三步之内取你小命！"/>
+	<Sound type="2" ID="91" branch="2" text="吃我一戟！"/>
+	<!-- 荀彧 -->
+	<Sound type="2" ID="92" branch="1" text="敬你之手与他一搏吧。"/>
+	<Sound type="2" ID="92" branch="2" text="此乃驱虎吞狼之计。"/>
+	<Sound type="2" ID="93" branch="1" text="我，永不背弃！"/>
+	<Sound type="2" ID="93" branch="2" text="秉忠贞之志，守谦退之节"/>
+	<!-- 庞统 -->
+	<Sound type="2" ID="94" branch="1" text="伤一敌可连其百。"/>
+	<Sound type="2" ID="94" branch="2" text="通通连起来吧。"/>
+	<Sound type="2" ID="95" branch="1" text="浴火重生！"/>
+	<Sound type="2" ID="95" branch="2" text="凤雏岂能消亡！"/>
+	<!-- 卧龙诸葛亮 -->
+	<Sound type="2" ID="96" branch="1" text="太极生两仪，两仪生四象，四象生八卦。"/>
+	<Sound type="2" ID="96" branch="2" text="你可识得此阵？"/>
+	<Sound type="2" ID="97" branch="1" text="此火可助我军大获全胜。"/>
+	<Sound type="2" ID="97" branch="2" text="燃烧吧！"/>
+	<Sound type="2" ID="98" branch="1" text="你的计谋被识破了。"/>
+	<Sound type="2" ID="98" branch="2" text="雕虫小计。"/>
+	<!-- 太史慈 -->
+	<Sound type="2" ID="99" branch="1" text="请助我一臂之力！"/>
+	<Sound type="2" ID="99" branch="2" text="我当要替天行道！"/>
+	<!-- 庞德 -->
+	<Sound type="2" ID="100" branch="1" text="你？可敢挡我？"/>
+	<Sound type="2" ID="100" branch="2" text="我要杀你们个片甲不留！"/>
+	<!-- 颜良文丑 -->
+	<Sound type="2" ID="101" branch="1" text="快来与吾等决一死战！"/>
+	<Sound type="2" ID="101" branch="2" text="吾们乃河北上将颜良、文丑是也。"/>
+	<!-- 袁绍 -->
+	<Sound type="2" ID="102" branch="1" text="全都去死吧。"/>
+	<Sound type="2" ID="102" branch="2" text="弓箭手，准备放箭。"/>
+	<!-- 徐晃 -->
+	<Sound type="2" ID="104" branch="1" text="截其援，断其粮，贼可擒也。"/>
+	<Sound type="2" ID="104" branch="2" text="人是铁，饭是钢。"/>
+	<!-- 曹丕 -->
+	<Sound type="2" ID="105" branch="1" text="来，管杀还管埋。"/>
+	<Sound type="2" ID="105" branch="2" text="我的是我的，你的还是我的"/>
+	<Sound type="2" ID="106" branch="1" text="给我翻过来。"/>
+	<Sound type="2" ID="106" branch="2" text="死罪可免，活罪难赦。"/>
+	<Sound type="2" ID="107" branch="1" text="仙福永享，寿与天齐！"/>
+	<Sound type="2" ID="107" branch="2" text="千秋万载，一统江山！"/>
+	<!-- 孙坚 -->
+	<Sound type="2" ID="108" branch="1" chrId="44" text="不诛此贼三族，则吾死不瞑目！"/>
+	<Sound type="2" ID="108" branch="2" chrId="44" text="以吾魂魄，保佑吾儿之基业。"/>
+	<!-- 董卓 -->
+	<Sound type="2" ID="109" branch="1" text="再来…一壶…"/>
+	<Sound type="2" ID="109" branch="2" text="好酒!好酒!"/>
+	<Sound type="2" ID="110" branch="1" text="美人儿，来，香一个～～"/>
+	<Sound type="2" ID="110" branch="2" text="食色，性也～～"/>
+	<Sound type="2" ID="111" branch="1" text="我是不是该减肥了？"/>
+	<Sound type="2" ID="112" branch="1" text="顺我者昌，逆我者亡！"/>
+	<Sound type="2" ID="112" branch="2" text="唔哈哈哈……"/>
+	<!-- 祝融 -->
+	<Sound type="2" ID="113" branch="1" text="小小把戏。"/>
+	<Sound type="2" ID="113" branch="2" text="大王，看我的。"/>
+	<Sound type="2" ID="114" branch="1" text="尝尝我飞刀的厉害！"/>
+	<Sound type="2" ID="114" branch="2" text="亮兵器吧。"/>
+	<!-- 孟获 -->
+	<Sound type="2" ID="115" branch="1" text="背黑锅我来，送死，你去！"/>
+	<Sound type="2" ID="115" branch="2" text="统统算我的！"/>
+	<Sound type="2" ID="116" branch="1" text="起～～～～！"/>
+	<Sound type="2" ID="116" branch="2" text="丞相助我！！！！"/>
+	<!-- 贾诩 -->
+	<Sound type="2" ID="117" branch="1" text="神仙难救，神仙难救啊。"/>
+	<Sound type="2" ID="117" branch="2" text="我要你三更死，谁敢留你到五更！"/>
+	<Sound type="2" ID="118" branch="1" text="哭喊吧，哀求吧，挣扎吧，然后死吧！"/>
+	<Sound type="2" ID="118" branch="2" text="哼哼，坐山观虎斗。"/>
+	<Sound type="2" ID="119" branch="1" text="此计伤不到我。"/>
+	<Sound type="2" ID="119" branch="2" text="你奈我何。"/>
+	<!-- 鲁肃 -->
+	<Sound type="2" ID="120" branch="1" text="拿去拿去，莫跟哥哥客气。"/>
+	<Sound type="2" ID="120" branch="2" text="来来来，见面分一半。"/>
+	<Sound type="2" ID="121" branch="1" text="以和为贵，以和为贵。"/>
+	<Sound type="2" ID="121" branch="2" text="合纵连横，方能以弱胜强。"/>
+	<!-- 袁术 -->
+	<Sound type="2" ID="202" branch="1" text="玉玺在手，天下我有。"/>
+	<Sound type="2" ID="202" branch="2" text="大汉天下，已半入我手。"/>
+	<Sound type="2" ID="203" branch="1" text="我才是皇帝！"/>
+	<Sound type="2" ID="203" branch="2" text="你们都得听我的号令！"/>
+	<!-- 公孙瓒 -->
+	<Sound type="2" ID="204" branch="1" text="冲啊！"/>
+	<Sound type="2" ID="204" branch="2" text="众将听令，摆好阵势，御敌！"/>
+	<!-- 新SP赵云 -->
+	<Sound type="2" ID="208" branch="1" text="陷阵杀敌，一马当先！"/>
+	<Sound type="2" ID="208" branch="2" text="贼将休走，可敢与我一战！"/>
+	<!-- 新SP貂蝉 -->
+	<Sound type="2" ID="209" branch="1" text="将军，这些都赏给妾身好不好嘛～～"/>
+	<Sound type="2" ID="209" branch="2" text="这些人家不喜欢嘛，还给你吧～～"/>
+	<!-- 新SP曹仁 -->
+	<Sound type="2" ID="211" branch="1" text="任你横行霸道，我自岿然不动。"/>
+	<Sound type="2" ID="211" branch="2" text="行伍严整，百战不殆。"/>
+	<Sound type="2" ID="210" branch="1" text="骑兵列队，准备突围。"/>
+	<Sound type="2" ID="210" branch="2" text="休整片刻，且待我杀出一条血路。"/>
+	<!-- 神关羽 -->
+	<Sound type="2" ID="301" branch="1" text="还不速速领死！"/>
+	<Sound type="2" ID="301" branch="2" text="取汝狗头，有如探囊取物。"/>
+	<Sound type="2" ID="302" branch="1" text="谁来与我同去"/>
+	<Sound type="2" ID="302" branch="2" text="纳命来～～！"/>
+	<!-- 神吕蒙 -->
+	<Sound type="2" ID="303" branch="1" text="略懂，略懂。"/>
+	<Sound type="2" ID="303" branch="2" text="什么都略懂一点，生活更多彩一些。"/>
+	<Sound type="2" ID="304" branch="1" text="我替施主把把脉。"/>
+	<Sound type="2" ID="304" branch="2" text="攻城为下，攻心为上。"/>
+	<!-- 神周瑜 -->
+	<Sound type="2" ID="306" branch="1" text="让这熊熊业火焚尽你的罪恶。"/>
+	<Sound type="2" ID="306" branch="2" text="聆听吧，这献给你的镇魂曲。"/>
+	<!-- 神诸葛亮 -->
+	<Sound type="2" ID="307" branch="1" text="伏望天恩，誓讨汉贼！"/>
+	<Sound type="2" ID="307" branch="2" text="祈星辰之力佑我蜀汉！"/>
+	<Sound type="2" ID="308" branch="1" text="万事俱备，只欠业火。"/>
+	<Sound type="2" ID="308" branch="2" text="风～～起～～"/>
+	<Sound type="2" ID="309" branch="1" text="此非万全之策，唯惧天雷。"/>
+	<Sound type="2" ID="309" branch="2" text="此计可保你一时平安。"/>
+	<!-- 神曹操 -->
+	<Sound type="2" ID="310" branch="1" text="山不厌高，海不厌深。"/>
+	<Sound type="2" ID="310" branch="2" text="周公吐哺，天下归心。"/>
+	<!-- 神吕布 -->
+	<Sound type="2" ID="313" branch="1" text="不管这些了。"/>
+	<Sound type="2" ID="313" branch="2" text="哪个说我有勇无谋。"/>
+	<Sound type="2" ID="314" branch="1" text="天王老子也保不住你。"/>
+	<Sound type="2" ID="314" branch="2" text="看我神威，无坚不摧！"/>
+	<Sound type="2" ID="315" branch="1" text="这才是活生生的地狱！"/>
+	<Sound type="2" ID="315" branch="2" text="凡人们，颤抖吧，这是神之怒火！"/>
+	<!-- 曹植 -->
+	<Sound type="2" ID="401" branch="1" text="这些都是我的。"/>
+	<Sound type="2" ID="401" branch="2" text="别着急扔，给我就好。"/>
+	<Sound type="2" ID="402" branch="1" text="置酒高殿上，亲友从我游。"/>
+	<Sound type="2" ID="402" branch="2" text="走马行酒礼，驱车不鱼肉。"/>
+	<!-- 高顺 -->
+	<Sound type="2" ID="403" branch="1" text="攻无不克战无不胜。"/>
+	<Sound type="2" ID="403" branch="2" text="破阵斩将，易如反掌。"/>
+	<Sound type="2" ID="404" branch="1" text="避嫌远疑，所以无误"/>
+	<Sound type="2" ID="404" branch="2" text="贬酒阙色，所以无污。"/>
+	<!-- 陈宫 -->
+	<Sound type="2" ID="405" branch="1" text="如此，霸业可图也"/>
+	<Sound type="2" ID="405" branch="2" text="如此，一击可擒也。"/>
+	<Sound type="2" ID="406" branch="1" text="若吾早知如此。"/>
+	<Sound type="2" ID="406" branch="2" text="如今之计，唯有退守，再做决断。"/>
+	<!-- 法正 -->
+	<Sound type="2" ID="407" branch="1" text="得人恩果千年记。"/>
+	<Sound type="2" ID="407" branch="2" text="滴水之恩，涌泉以报。"/>
+	<Sound type="2" ID="407" branch="3" text="谁敢得罪我。"/>
+	<Sound type="2" ID="407" branch="4" text="睚眦之怨，无不报复。"/>
+	<Sound type="2" ID="408" branch="1" text="给你的，十倍奉还给我。"/>
+	<Sound type="2" ID="408" branch="2" text="重用许靖，以眩远近。"/>
+	<!-- 凌统 -->
+	<Sound type="2" ID="409" branch="1" text="伤敌于千里之外。"/>
+	<Sound type="2" ID="409" branch="2" text="索命于须臾之间。"/>
+	<!-- 马谡 -->
+    <Sound type="2" ID="236" branch="1" chrId="156" text="三人成虎，事多由"/>
+	<Sound type="2" ID="236" branch="2" chrId="156" text="散谣惑敌，不攻自破"/>	
+	<Sound type="2" ID="237" branch="1" chrId="156" text="兵法暗熟于心，取胜千里之外"/>
+	<Sound type="2" ID="237" branch="2" chrId="156" text="丞相多虑，且看我的"/>	
+	<!-- 吴国太 -->
+	<Sound type="2" ID="412" branch="1" text="此真乃吾之佳婿也。"/>
+	<Sound type="2" ID="412" branch="2" text="男婚女嫁，须当交换文定之物。"/>
+	<Sound type="2" ID="413" branch="1" text="吾乃吴国之母，何人敢造次！"/>
+	<Sound type="2" ID="413" branch="2" text="有老身在，汝等尽可放心。"/>
+	<!-- 徐盛 -->
+	<Sound type="2" ID="414" branch="1" text="大军在此，汝等休想前进一步！"/>
+	<Sound type="2" ID="414" branch="2" text="敬请养精蓄锐。"/>
+	<!-- 徐庶 -->
+	<Sound type="2" ID="415" branch="1" text="嘘，言多必失啊！"/>
+	<Sound type="2" ID="415" branch="2" text="唉，一切尽在不言中。"/>
+	<Sound type="2" ID="416" branch="1" text="将军岂愿抓牌乎？"/>
+	<Sound type="2" ID="416" branch="2" text="我看好你。"/>
+	<!-- 于禁 -->
+	<Sound type="2" ID="417" branch="1" text="稳重行军，百战不殆。"/>
+	<Sound type="2" ID="417" branch="2" text="不先为备，何以待敌。"/>
+	<!-- 张春华 -->
+	<Sound type="2" ID="418" branch="1" text="你的死活与我何干？"/>
+	<Sound type="2" ID="418" branch="2" text="无来无去，不悔不怨。"/>
+	<Sound type="2" ID="419" branch="1" text="无情者伤人，有情者自伤。"/>
+	<Sound type="2" ID="419" branch="2" text="自损八百，可伤敌一千。"/>
+	<!-- 蔡文姬 -->
+	<Sound type="2" ID="137" branch="1" text="制兹八拍兮拟排忧，何知曲成兮心转愁。"/>
+	<Sound type="2" ID="137" branch="2" text="悲歌可以当泣，远望可以当归。"/>
+	<Sound type="2" ID="138" branch="1" text="日东月西兮徒相望，不得相随兮空断肠。"/>
+	<Sound type="2" ID="138" branch="2" text="流落异乡愁断肠。"/>
+	<!-- 邓艾 -->
+	<Sound type="2" ID="139" branch="1" text="攻其无备，出其不意！"/>
+	<Sound type="2" ID="139" branch="2" text="偷渡阴平，直取蜀汉！"/>
+	<Sound type="2" ID="123" branch="1" text="休养生息，备战待敌。"/>
+	<Sound type="2" ID="123" branch="2" text="锄禾日当午, 汗滴禾下土。"/>
+	<Sound type="2" ID="124" branch="1" text="屯田日久，当建奇功。"/>
+	<Sound type="2" ID="124" branch="2" text="开辟险路，奇袭敌军。"/>
+		<!-- 姜维 -->
+	<Sound type="2" ID="125" branch="1" chrId="52" text="汝等小儿，可敢杀我？"/>
+	<Sound type="2" ID="125" branch="2" chrId="52" text="贼将早降，可免一死。"/>
+	<Sound type="2" ID="126" branch="1" text="先帝之志，丞相之托，不可忘也！"/>
+	<Sound type="2" ID="126" branch="2" text="丞相厚恩，维万死不能相报！"/>
+	<Sound type="2" ID="35" branch="3" chrId="52" text="继丞相之遗志，讨篡汉之逆贼！"/>
+	<Sound type="2" ID="35" branch="4" chrId="52" text="克复中原，指日可待！"/>
+		<!-- 刘禅 -->
+	<Sound type="2" ID="127" branch="1" text="打打杀杀，真没意思。"/>
+	<Sound type="2" ID="127" branch="2" text="我的爸爸是刘备！"/>
+	<Sound type="2" ID="128" branch="1" text="这可如何是好？"/>
+	<Sound type="2" ID="128" branch="2" text="你办事儿，我放心。"/>
+	<Sound type="2" ID="129" branch="1" text="不装疯卖傻，岂能安然无恙？"/>
+	<Sound type="2" ID="129" branch="2" text="世人皆错看我，唉…"/>
+	<Sound type="2" ID="32" branch="3" chrId="53" text="匡扶汉室！谁敢出战！"/>
+	<Sound type="2" ID="32" branch="4" chrId="53" text="我蜀汉岂无人乎？"/>
+		<!-- 孙策 -->
+	<Sound type="2" ID="130" branch="1" text="吾乃江东小霸王孙伯符！"/>
+	<Sound type="2" ID="130" branch="2" text="江东子弟，何惧于天下！"/>
+	<Sound type="2" ID="131" branch="1" text="父亲在上，魂佑江东；公瑾在旁，智定天下！"/>
+	<Sound type="2" ID="131" branch="2" text="愿承父志，与公瑾共谋天下。"/>
+	<Sound type="2" ID="132" branch="1" text="我若怕你，非孙伯符也。"/>
+	<Sound type="2" ID="132" branch="2" text="是友是敌，一探便知。"/>
+	<Sound type="2" ID="55" branch="3" chrId="54" text="公瑾，助我决一死战！"/>
+	<Sound type="2" ID="55" branch="4" chrId="54" text="尔等看好了。"/>
+	<Sound type="2" ID="108" branch="3" chrId="54" text="父亲，助我背水一战！"/>
+	<Sound type="2" ID="108" branch="4" chrId="54" text="孙氏英烈，庇佑江东。"/>
+		<!-- 张颌 -->
+	<Sound type="2" ID="122" branch="1" text="兵无常势，水无常形。"/>
+	<Sound type="2" ID="122" branch="2" text="用兵之道，变化万千。"/>
+		<!-- 张弘张昭 -->
+	<Sound type="2" ID="133" branch="1" text="请恕老臣直言。"/>
+	<Sound type="2" ID="133" branch="2" text="为臣者，当冒死以谏。"/>
+	<Sound type="2" ID="134" branch="1" text="今当稳固内政，以御外患。"/>
+	<Sound type="2" ID="134" branch="2" text="固国安邦，须当如是！"/>
+		<!-- 左慈 -->
+	<Sound type="2" ID="135" branch="1" text="万物苍生，幻化由心。"/>
+	<Sound type="2" ID="135" branch="2" text="肉眼凡胎，岂能窥视仙人变幻？"/>
+	<Sound type="2" ID="136" branch="1" text="幻幻无穷，生生不息。"/>
+	<Sound type="2" ID="136" branch="2" text="吐故纳新，师法天地。"/>
+		<!-- 曹彰 -->
+	<Sound type="2" ID="420" branch="1" text="吾定当身先士卒，振魏武雄风。"/>
+	<Sound type="2" ID="420" branch="2" text="谨遵父训，不可乘匹夫之勇。"/>
+		<!-- 王异 -->
+	<Sound type="2" ID="421" branch="1" text="我，绝不屈服！"/>
+	<Sound type="2" ID="421" branch="2" text="休要小看妇人志气！"/>
+	<Sound type="2" ID="422" branch="1" text="我将尽我所能。"/>
+	<Sound type="2" ID="422" branch="2" text="奇谋，只在绝境中诞生！"/>
+		<!-- 荀攸 -->
+	<Sound type="2" ID="423" branch="1" text="倾力卫国，算无遗策！"/>
+	<Sound type="2" ID="423" branch="2" text="奇策在此，谁与争锋？"/>
+	<Sound type="2" ID="424" branch="1" text="大勇若怯，大智如愚。"/>
+	<Sound type="2" ID="424" branch="2" text="愚者既出，智者何存？"/>
+		<!-- 关兴张苞 -->
+	<Sound type="2" ID="425" branch="1" text="呐喊破敌，锐不可当！"/>
+	<Sound type="2" ID="425" branch="2" text="匹夫之勇，插标卖首~"/>
+		<!-- 廖化 -->
+	<Sound type="2" ID="426" branch="1" text="先锋就由老夫来当！"/>
+	<Sound type="2" ID="426" branch="2" text="看我先行破敌！"/>
+	<Sound type="2" ID="427" branch="1" text="今天是个拼命的好日子，哈哈哈！"/>
+	<Sound type="2" ID="427" branch="2" text="有老夫在，蜀汉就不会倒下！"/>
+		<!-- 马岱 -->
+	<Sound type="2" ID="428" branch="1" text="喊什么喊？我敢杀你！"/>
+	<Sound type="2" ID="428" branch="2" text="笑什么笑，叫你得意！"/>
+		<!-- 步练师 -->
+	<Sound type="2" ID="429" branch="1" text="和鸾雍雍，万福攸同。"/>
+	<Sound type="2" ID="429" branch="2" text="君子乐胥，万邦之屏。"/>
+	<Sound type="2" ID="430" branch="1" text="终其永怀，恋心殷殷。"/>
+	<Sound type="2" ID="430" branch="2" text="妾心所系，如月之恒。"/>
+		<!-- 程普 -->
+	<Sound type="2" ID="431" branch="1" text="将士们，引火对敌！"/>
+	<Sound type="2" ID="431" branch="2" text="和我同归于尽吧！"/>
+	<Sound type="2" ID="432" branch="1" text="诶，帐中不可无酒啊。"/>
+	<Sound type="2" ID="432" branch="2" text="无碍，且饮一杯！"/>
+		<!-- 韩当 -->
+	<Sound type="2" ID="433" branch="1" text="鼠辈，哪里走！"/>
+	<Sound type="2" ID="433" branch="2" text="吃我一箭！"/>
+	<Sound type="2" ID="434" branch="1" text="休想趁人之危！"/>
+	<Sound type="2" ID="434" branch="2" text="退后，这里交给我！"/>
+	<!-- 华雄 -->
+	<Sound type="2" ID="435" branch="1" text="好大一股杀气啊！"/>
+	<Sound type="2" ID="435" branch="2" text="好大一股酒气啊！"/>
+		<!-- 刘表 -->
+	<Sound type="2" ID="436" branch="1" text="荆襄之地，固若金汤。"/>
+	<Sound type="2" ID="436" branch="2" text="江河霸主，何惧之有？"/>
+	<Sound type="2" ID="437" branch="1" text="汉室百年，坚如磐石。"/>
+	<Sound type="2" ID="437" branch="2" text="宗室子弟，尽收民心。"/>
+		<!-- 钟会 -->
+	<Sound type="2" ID="438" branch="1" text="这仇,我记下了。"/>
+	<Sound type="2" ID="438" branch="2" text="先让你得意几天。"/>
+	<Sound type="2" ID="439" branch="1" text="时机已到，今日起兵！"/>
+	<Sound type="2" ID="439" branch="2" text="欲取天下，当在此时！"/>
+	<Sound type="2" ID="440" branch="1" text="妨碍我的人，都得死。"/>
+	<Sound type="2" ID="440" branch="2" text="此地，容不下你。"/>
+		<!-- 刘协 -->
+	<Sound type="2" ID="604" branch="1" text="朕乃大汉皇帝，天命之子！"/>
+	<Sound type="2" ID="604" branch="2" text="皇汉国祚，千年不息。"/>
+	<Sound type="2" ID="605" branch="1" text="爱卿世受皇恩，堪此重任。"/>
+	<Sound type="2" ID="605" branch="2" text="此诏事关重大，切记小心行事。"/>
+		<!-- 灵雎 -->
+	<Sound type="2" ID="606" branch="1" text="我所有的努力，都是为了杀你！"/>
+	<Sound type="2" ID="606" branch="2" text="我必须活下去。"/>
+	<Sound type="2" ID="607" branch="1" text="杀人，诛心。"/>
+	<Sound type="2" ID="607" branch="2" text="主上，这是最后的机会……"/>
+		<!-- 伏完 -->
+	<Sound type="2" ID="603" branch="1" text="你的死期到了。"/>
+	<Sound type="2" ID="603" branch="2" text="同归于尽吧。"/>
+		<!-- SP陈琳 -->
+	<Sound type="2" ID="212" branch="1" text="笔墨纸砚，皆兵器也。"/>
+	<Sound type="2" ID="212" branch="2" text="汝德行败坏，人所不齿也。"/>
+	<Sound type="2" ID="213" branch="1" text="将军德才兼备，大汉之栋梁也。"/>
+	<Sound type="2" ID="213" branch="2" text="汝窃国奸贼，人人得而诛之。"/>
+		<!-- 夏侯霸 -->
+	<Sound type="2" ID="034" branch="3" chrId="116" text="喝！"/>
+	<Sound type="2" ID="034" branch="4" chrId="116" text="受死吧！"/>
+	<Sound type="2" ID="125" branch="3" chrId="116" text="跪下受降，饶你不死。"/>
+	<Sound type="2" ID="125" branch="4" chrId="116" text="黄口小儿，可听过将军名号？"/>
+	<Sound type="2" ID="73" branch="3" chrId="116" text="今日有恙在身，需得速战速决"/>
+	<Sound type="2" ID="73" branch="4" chrId="116" text="冲杀敌阵，来去如电。"/>
+		<!-- 大乔小乔 -->
+	<Sound type="2" ID="219" branch="1" text="哼，不要小瞧女孩子哦～"/>
+	<Sound type="2" ID="219" branch="2" text="姐妹齐心，其利断金。"/>
+	<Sound type="2" ID="61" branch="3" chrId="117" text="不懂得怜香惜玉么～"/>
+	<Sound type="2" ID="61" branch="4" chrId="117" text="呵呵，交给你啦～"/>
+	<Sound type="2" ID="75" branch="3" chrId="117" text="哼，我才不怕你呢～"/>
+	<Sound type="2" ID="75" branch="4" chrId="117" text="替我挡着吧～"/>
+		<!-- 曹洪 -->
+	<Sound type="2" ID="214" branch="1" text="将军，这件兵器可还称手？"/>
+	<Sound type="2" ID="214" branch="2" text="宝马配英雄，哈哈哈……"/>
+	<Sound type="2" ID="214" branch="3" text="刀剑无眼，须得小心防护。"/>
+			<!-- 张宝 -->
+	<Sound type="2" ID="223" branch="1" text="违吾咒者，倾死灭亡。"/>
+	<Sound type="2" ID="223" branch="2" text="咒宝符命，速显威灵。"/>
+	<Sound type="2" ID="223" branch="3" text="所呼立至，所召立前。"/>
+	<Sound type="2" ID="224" branch="1" text="朱雀玄武，侍卫我真。"/>
+			<!-- 关银屏 -->
+	<Sound type="2" ID="216" branch="1" text="大仇未报，还不能放弃！"/>
+	<Sound type="2" ID="216" branch="2" text="虎父无犬女！"/>
+	<Sound type="2" ID="217" branch="1" text="我感受到了……父亲的力量……"/>
+	<Sound type="2" ID="217" branch="2" text="我也要像父亲那样坚强！"/>
+	<Sound type="2" ID="215" branch="1" text="这炽热的鲜血，父亲你可感觉得到？"/>
+	<Sound type="2" ID="215" branch="2" text="取你首级，祭先父之灵！"/>
+			<!-- 诸葛恪 -->
+	<Sound type="2" ID="221" branch="1" text="吾主圣明，泽被臣属！"/>
+	<Sound type="2" ID="221" branch="2" text="哼，易如反掌。"/>
+	<Sound type="2" ID="222" branch="1" text="全力攻城，言退者斩！"/>
+	<Sound type="2" ID="222" branch="2" text="破曹大功，正在今朝！"/>
+				<!-- 郭淮 -->
+	<Sound type="2" ID="443" branch="1" text="精兵据敌，策守如山。"/>
+	<Sound type="2" ID="443" branch="2" text="方策精详，有备无患。"/>
+				<!-- 满宠 -->
+	<Sound type="2" ID="444" branch="1" text="严刑峻法,以破奸轨之胆！"/>
+	<Sound type="2" ID="444" branch="2" text="你招，还是不招？"/>
+	<Sound type="2" ID="445" branch="1" text="御敌之策，成竹在胸。"/>
+	<Sound type="2" ID="445" branch="2" text="以缓制急，不战屈兵。"/>
+				<!-- 曹冲 -->
+	<Sound type="2" ID="441" branch="1" text="孰重孰轻，一称便知。"/>
+	<Sound type="2" ID="441" branch="2" text="依我看，小事一桩。"/>
+	<Sound type="2" ID="442" branch="1" text="仁者爱人，人恒爱之。"/>
+	<Sound type="2" ID="442" branch="2" text="有我在，别怕。"/>
+				<!-- 刘封 -->
+	<Sound type="2" ID="449" branch="1" text="袭人于不意，溃敌于无形。"/>
+	<Sound type="2" ID="449" branch="2" text="破敌军阵，父亲定会刮目相看。"/>
+	<Sound type="2" ID="449" branch="3" text="此乃孟达之计，非我所愿！"/>
+	<Sound type="2" ID="449" branch="4" text="我有何罪？"/>
+				<!-- 关平 -->
+	<Sound type="2" ID="446" branch="1" text="虎啸既响，龙吟当附！"/>
+	<Sound type="2" ID="446" branch="2" text="破阵杀敌，愿献犬马之劳！"/>
+				<!-- 简雍 -->
+	<Sound type="2" ID="447" branch="1" text="君且安坐，听我一言。"/>
+	<Sound type="2" ID="447" branch="2" text="合则两利，斗则两伤。"/>
+	<Sound type="2" ID="448" branch="1" text="此等小事，何须挂耳。"/>
+	<Sound type="2" ID="448" branch="2" text="买卖不成，情义还在。"/>
+				<!-- 朱然 -->
+	<Sound type="2" ID="454" branch="1" text="以胆为守，扼敌咽喉！"/>
+	<Sound type="2" ID="454" branch="2" text="到此为止了！"/>
+				<!-- 虞翻 -->
+	<Sound type="2" ID="452" branch="1" text="依易设象，以占吉凶。"/>
+	<Sound type="2" ID="452" branch="2" text="世间万物，皆有定数。"/>
+	<Sound type="2" ID="453" branch="1" text="直言劝谏，不惧祸否。"/>
+	<Sound type="2" ID="453" branch="2" text="志节分明，折而不屈。"/>
+				<!-- 潘璋&马忠 -->
+	<Sound type="2" ID="450" branch="1" text="夺敌兵刃，如断其臂。"/>
+	<Sound type="2" ID="450" branch="2" text="这刀岂是你配用的？"/>
+	<Sound type="2" ID="451" branch="1" text="击其懈怠，攻其不备。"/>
+	<Sound type="2" ID="451" branch="2" text="哼，你满身都是破绽！"/>
+				<!-- 李儒 -->
+	<Sound type="2" ID="457" branch="1" text="哼，你走投无路了！"/>
+	<Sound type="2" ID="457" branch="2" text="无用之人，死！"/>
+	<Sound type="2" ID="458" branch="1" text="宁错杀，毋放过……"/>
+	<Sound type="2" ID="458" branch="2" text="你，能逃得出我的手掌心吗？"/>
+	<Sound type="2" ID="459" branch="1" text="我得不到的，你们也别想得到！"/>
+	<Sound type="2" ID="459" branch="2" text="让这一切都灰飞烟灭吧，哈哈哈哈！"/>
+	<!-- 伏皇后 -->
+	<Sound type="2" ID="455" branch="1" text="嘘，隔墙有耳......"/>
+	<Sound type="2" ID="455" branch="2" text="诚惶诚恐，夜不能寐。"/>
+	<Sound type="2" ID="456" branch="1" text="逆贼逞凶，卿可灭之？"/>
+	<Sound type="2" ID="456" branch="2" text="求父亲救救大汉江山吧！"/>
+    <!-- 乐进 -->
+    <Sound type="2" ID="2100" branch="1" text="三军听我号令，不得撤退！"/>
+	<Sound type="2" ID="2100" branch="2" text="看我先登城头，立下首功！"/>
+    <!-- 新法正 -->
+    <Sound type="2" ID="460" branch="1" chrId="185" text="抱之以李，还之以桃"/>
+	<Sound type="2" ID="460" branch="2" chrId="185" text="伤了我，休想全身而退！"/>
+    <Sound type="2" ID="461" branch="1" chrId="185" text="收人钱财，替人消灾"/>
+	<Sound type="2" ID="461" branch="2" chrId="185" text="哼，叫你十倍奉还"/>
+    <!-- 新徐庶 -->
+    <Sound type="2" ID="462" branch="1" chrId="186" text="汝有良策，何必问我"/>
+	<Sound type="2" ID="462" branch="2" chrId="186" text="吾誓不为汉贼献一策"/>		
+    <Sound type="2" ID="463" branch="1" chrId="186" text="天下大任，望君莫辞"/>
+	<Sound type="2" ID="463" branch="2" chrId="186" text="卧龙之才，远胜于吾"/>		
+    <!-- 新张角 -->
+    <Sound type="2" ID="79" branch="3" chrId="212" text="道势所向，皆由我控"/>
+	<Sound type="2" ID="79" branch="4" chrId="212" text="哼哼，天意如此！"/>		
+    <Sound type="2" ID="80" branch="3" chrId="212" text="苍天不复，黄天将替"/>
+	<Sound type="2" ID="80" branch="4" chrId="212" text="黄天立，民心顺，天下平！"/>	
+    <Sound type="2" ID="468" branch="1" chrId="212" text="成为黄天之世的祭品吧！"/>
+	<Sound type="2" ID="468" branch="2" chrId="212" text="呼风唤雨，驱雷策电"/>		
+    <!-- 新周泰 -->
+    <Sound type="2" ID="466" branch="1" chrId="210" text="战如熊虎，不惜躯命！"/>
+	<Sound type="2" ID="466" branch="2" chrId="210" text="哼，这点小伤算什么"/>		
+    <Sound type="2" ID="467" branch="1" chrId="210" text="百战之身，奋勇趋前！"/>
+	<Sound type="2" ID="467" branch="2" chrId="210" text="两肋插刀，愿赴此躯！"/>		
+    <!-- 新于吉 -->
+    <Sound type="2" ID="469" branch="1" chrId="211" text="道法玄机，变幻莫测"/>
+	<Sound type="2" ID="469" branch="2" chrId="211" text="如真似幻，扑朔迷离"/>		
+    <Sound type="2" ID="470" branch="1" chrId="211" text="不识天数，在劫难逃"/>
+	<Sound type="2" ID="470" branch="2" chrId="211" text="凡人仇怨，皆由心生"/>	
+    <!-- 曹昂 -->
+    <Sound type="2" ID="225" branch="1" chrId="122" text="典将军，比比看谁杀敌更多！"/>
+	<Sound type="2" ID="225" branch="2" chrId="122" text="父亲快走，有我殿后！"/>		
+    <!-- 诸葛瑾 -->
+    <Sound type="2" ID="501" branch="3" chrId="123" text="缓乐之危急，释兵之困顿"/>
+	<Sound type="2" ID="501" branch="4" chrId="123" text="尽死生之力，保友邦之安"/>		
+    <Sound type="2" ID="502" branch="3" chrId="123" text="诸将莫慌，粮草已到"/>
+	<Sound type="2" ID="502" branch="4" chrId="123" text="自舍其身，施于天下"/>	
+    <Sound type="2" ID="503" branch="3" chrId="123" text="塞翁失马，焉知非福"/>
+	<Sound type="2" ID="503" branch="4" chrId="123" text="明以洞察，哲以保身"/>	
+
+    <!-- 新关张 -->
+    <Sound type="2" ID="33" branch="1" chrId="188" text="一夫当关，万夫莫当！"/>
+	<Sound type="2" ID="34" branch="1" chrId="188" text="喝啊！"/>		
+	<Sound type="2" ID="473" branch="1" chrId="188" text="光复汉室，重任在肩！"/>
+	<Sound type="2" ID="473" branch="1" chrId="188" text="将门虎子，承我父志！"/>	
+	<!-- 新王异 -->
+    <Sound type="2" ID="471" branch="1" chrId="187" text="此计，可歼敌精锐！"/>
+	<Sound type="2" ID="471" branch="2" chrId="187" text="此举，可破敌之围！"/>		
+	<Sound type="2" ID="472" branch="1" chrId="187" text="虽是妇人，亦当奋身一搏！"/>
+	<Sound type="2" ID="472" branch="2" chrId="187" text="为血前耻，不惜误身！"/>	
+	<!-- 马岱 -->
+    <Sound type="2" ID="474" branch="1" chrId="189" text="伤敌十指，不如断敌一指！"/>
+	<Sound type="2" ID="474" branch="2" chrId="189" text="斩草除根，除恶务尽！"/>		
+    <!-- 界关羽 -->
+    <Sound type="2" ID="33" branch="1" chrId="300" text="又一个刀下亡魂！"/>
+	<Sound type="2" ID="33" branch="2" chrId="300" text="忠义当先，有进无退"/>	   
+	<Sound type="2" ID="701" branch="1" chrId="300" text="将军之恩，今日两清。"/>
+	<Sound type="2" ID="701" branch="2" chrId="300" text="日后再见，休怪关某不留情面"/>	  
+	<!-- 界曹操 -->
+    <Sound type="2" ID="43" branch="1" chrId="311" text="来人，来人！"/>
+	<Sound type="2" ID="43" branch="2" chrId="311" text="有刺客！"/>	
+	<Sound type="2" ID="717" branch="1" chrId="311" text="乱世天下，能者居之！"/>
+	<Sound type="2" ID="717" branch="2" chrId="311" text="宁我负人，毋人负我！"/>	
+	<!-- 界华佗 -->
+    <Sound type="2" ID="64" branch="1" chrId="318" text="救死扶伤，悬壶济世"/>
+	<Sound type="2" ID="64" branch="2" chrId="318" text="妙手仁心，药到病除"/>	
+	<Sound type="2" ID="727" branch="1" chrId="318" text="病去如抽丝"/>
+	<Sound type="2" ID="727" branch="2" chrId="318" text="病入膏肓，需下猛药"/>	
+	<!-- 界吕蒙 -->
+    <Sound type="2" ID="63" branch="1" chrId="306" text="蓄力待时，不争首功"/>
+	<Sound type="2" ID="63" branch="2" chrId="306" text="最好的机会，还在等着我…"/>	
+    <Sound type="2" ID="304" branch="1" chrId="306" text="洞若观火，运筹帷幄"/>
+	<Sound type="2" ID="304" branch="2" chrId="306" text="哼，早知如此"/>	
+	<Sound type="2" ID="709" branch="1" chrId="306" text="兵书熟读，了然于胸"/>
+	<Sound type="2" ID="709" branch="2" chrId="306" text="勤以修身，学以报国"/>	
+	<!-- 界张飞 -->
+    <Sound type="2" ID="34" branch="1" chrId="301" text="喝啊！"/>
+	<Sound type="2" ID="34" branch="2" chrId="301" text="今必斩汝马下！"/>	
+	<Sound type="2" ID="702" branch="1" chrId="301" text="欺我无谋？定要尔等血偿！"/>
+	<Sound type="2" ID="702" branch="2" chrId="301" text="谁还敢过来一战！"/>
+    <!-- 界徐庶 -->
+    <Sound type="2" ID="705" branch="1" chrId="304" text="善恶有报，天道轮回"/>
+	<Sound type="2" ID="705" branch="2" chrId="304" text="早知今日，何必当初"/>	
+	<Sound type="2" ID="706" branch="1" chrId="304" text="既遇明主，天下可图"/>
+	<Sound type="2" ID="706" branch="2" chrId="304" text="弃武从文，安邦卫国"/>	
+	<Sound type="2" ID="707" branch="1" chrId="304" text="开言纳谏，社稷之福"/>
+	<Sound type="2" ID="707" branch="2" chrId="304" text="如此如此，敌军自破"/>	
+	<!-- 界司马懿 -->
+    <Sound type="2" ID="718" branch="1" chrId="312" text="哼，正中下怀"/>
+	<Sound type="2" ID="718" branch="2" chrId="312" text="哼，自作孽，不可活"/>	
+	<Sound type="2" ID="719" branch="1" chrId="312" text="才通天地，逆天改命"/>
+	<Sound type="2" ID="719" branch="2" chrId="312" text="天命难违？哈哈哈哈~"/>
+	<!-- 界黄盖 -->
+    <Sound type="2" ID="710" branch="1" chrId="307" text="我这把老骨头，不算什么"/>
+	<Sound type="2" ID="710" branch="2" chrId="307" text="为成大义，死不足惜"/>	
+	<Sound type="2" ID="711" branch="1" chrId="307" text="铁索连舟而行，东吴水师可破"/>
+	<Sound type="2" ID="711" branch="2" chrId="307" text="两军阵前，不斩降将"/>
+	<!-- 界周瑜 -->
+    <Sound type="2" ID="712" branch="1" chrId="308" text="伯符，且看我这一手！"/>
+	<Sound type="2" ID="712" branch="2" chrId="308" text="哈哈哈哈哈哈哈哈哈"/>	
+	<Sound type="2" ID="713" branch="1" chrId="308" text="抉择吧，在苦与痛的地狱中"/>
+	<Sound type="2" ID="713" branch="2" chrId="308" text="与我为敌，就当如这般生不如死"/>
+	<!-- 界大乔 -->
+    <Sound type="2" ID="714" branch="1" chrId="309" text="旅途劳顿，请下马休整吧~"/>
+	<Sound type="2" ID="714" branch="2" chrId="309" text="还没到休息的时候~"/>	
+	<Sound type="2" ID="61" branch="1" chrId="309" text="帮帮人家嘛~"/>
+	<Sound type="2" ID="61" branch="2" chrId="309" text="伯符不在身边，我要自己保重"/>
+	<!-- 界李典 -->
+    <Sound type="2" ID="725" branch="1" chrId="317" text="众将死战，非我之功"/>
+	<Sound type="2" ID="725" branch="2" chrId="317" text="爱兵如子,胜乃可全"/>	
+	<Sound type="2" ID="726" branch="1" chrId="317" text="大丈夫何拘小节"/>
+	<Sound type="2" ID="726" branch="2" chrId="317" text="前尘往事，莫再提起"/>
+	<!-- 界许褚 -->
+    <Sound type="2" ID="723" branch="1" chrId="315" text="废话少说，放马过来吧！"/>
+	<Sound type="2" ID="723" branch="2" chrId="315" text="过来打一架，对，就是你！"/>	
+	<!-- 界张辽 -->
+    <Sound type="2" ID="722" branch="1" chrId="314" text="快马突袭，占尽先机"/>
+	<Sound type="2" ID="722" branch="2" chrId="314" text="马似飞影，枪如霹雳"/>	
+	<!-- 界赵云 -->
+    <Sound type="2" ID="37" branch="1" chrId="302" text="进退自如，游刃有余"/>
+	<Sound type="2" ID="37" branch="2" chrId="302" text="龙威虎胆，斩敌破阵"/>	
+	<Sound type="2" ID="703" branch="1" chrId="302" text="遍寻天下，但求一败！"/>
+	<Sound type="2" ID="703" branch="2" chrId="302" text="策马驱前，斩敌当先"/>
+	<!-- 界公孙瓒 -->
+    <Sound type="2" ID="729" branch="1" chrId="320" text="夺敌辎重，以为己用"/>
+	<Sound type="2" ID="729" branch="2" chrId="320" text="秣马厉兵，枕戈待战"/>	
+	<Sound type="2" ID="204" branch="1" chrId="320" text="变阵冲轭，以守代攻"/>
+	<Sound type="2" ID="204" branch="2" chrId="320" text="列阵锋矢，直取要害"/>
+	<!-- 界吕布 -->
+    <Sound type="2" ID="66" branch="1" chrId="319" text="还有哪个敢挑战我！"/>
+	<Sound type="2" ID="66" branch="2" chrId="319" text="三个齐上，也不是我的对手！"/>	
+	<Sound type="2" ID="728" branch="1" chrId="319" text="大丈夫相时而动"/>
+	<Sound type="2" ID="728" branch="2" chrId="319" text="人不为己，天诛地灭"/>
+
+	<!-- 界夏侯惇 -->
+    <Sound type="2" ID="720" branch="1" chrId="313" text="哪个敢动我！"/>
+	<Sound type="2" ID="720" branch="2" chrId="313" text="伤我者，十倍奉还！"/>	
+	<Sound type="2" ID="721" branch="1" chrId="313" text="福生于清俭,德生于卑退"/>
+	<Sound type="2" ID="721" branch="2" chrId="313" text="钱财乃身外之物"/>
+	<!-- 界马超 -->
+    <Sound type="2" ID="704" branch="1" chrId="303" text="敌人阵型已乱！随我杀啊啊啊啊啊！"/>
+	<Sound type="2" ID="704" branch="2" chrId="303" text="目标敌阵，全军突击！"/>	
+	<!-- 界甘宁 -->
+    <Sound type="2" ID="57" branch="3" chrId="305" text="弟兄们，准备动手！"/>
+	<Sound type="2" ID="57" branch="4" chrId="305" text="你用不了这么多牌！"/>	
+	<Sound type="2" ID="708" branch="1" chrId="305" text="奋勇当先，威名远扬"/>
+	<Sound type="2" ID="708" branch="2" chrId="305" text="哼！敢欺我东吴无人？"/>
+	<!-- 界郭嘉 -->
+    <Sound type="2" ID="51" branch="3" chrId="316" text="那就…这样吧…"/>
+	<Sound type="2" ID="51" branch="4" chrId="316" text="天意如此吗…"/>	
+	<Sound type="2" ID="724" branch="1" chrId="316" text="锦囊秒策，忠定社稷。"/>
+	<Sound type="2" ID="724" branch="2" chrId="316" text="依此计行，辽东可定"/>
+	<!-- 界陆逊 -->
+    <Sound type="2" ID="715" branch="1" chrId="310" text="满招损，谦受益"/>
+	<Sound type="2" ID="715" branch="2" chrId="310" text="谦谦君子，温润如玉"/>	
+	<Sound type="2" ID="716" branch="1" chrId="310" text="生生不息，源源不绝"/>
+	<Sound type="2" ID="716" branch="2" chrId="310" text="失之淡然，得之坦然"/>
+	<!-- 杨修 -->
+    <Sound type="2" ID="205" branch="1" chrId="104" text="来来，一人一口"/>
+	<Sound type="2" ID="205" branch="2" chrId="104" text="我喜欢！"/>	
+	<Sound type="2" ID="206" branch="1" chrId="104" text="食之无肉，弃之有味"/>
+	<Sound type="2" ID="206" branch="2" chrId="104" text="曹公之意，我已了然"/>
+	
+	<!-- 祖茂 -->
+    <Sound type="2" ID="228" branch="1" chrId="125" text="追兵凶猛，末将断后！"/>
+	<Sound type="2" ID="228" branch="2" chrId="125" text="将军走此小道，追兵将我应付！"/>	
+	<Sound type="2" ID="229" branch="1" chrId="125" text="困兽之斗，以全忠义！"/>
+	<Sound type="2" ID="229" branch="2" chrId="125" text="提起武器，最后一搏！"/>
+	<!-- 马良 -->
+    <Sound type="2" ID="230" branch="1" chrId="128" text="休要再起战事"/>
+	<Sound type="2" ID="230" branch="2" chrId="128" text="暴戾之气，伤人害己"/>	
+	<Sound type="2" ID="231" branch="1" chrId="128" text="弃暗投明，光耀门楣"/>
+	<Sound type="2" ID="231" branch="2" chrId="128" text="慢着，让我来"/>
+	<!-- 诸葛诞 -->
+    <Sound type="2" ID="232" branch="1" chrId="129" text="攻城拔寨，建功立业"/>
+	<Sound type="2" ID="232" branch="2" chrId="129" text="恪尽职守，忠心事主"/>
+	<Sound type="2" ID="233" branch="1" chrId="129" text="司马氏篡权，我当替天罚之"/>
+	<Sound type="2" ID="239" branch="1" chrId="129" text="定当移司马氏三族"/>
+
+	<!-- 程昱 -->
+	<Sound type="2" ID="234" branch="1" chrId="130" text="圈套已设，埋伏已完，只等敌军进来"/>
+	<Sound type="2" ID="234" branch="2" chrId="130" text="如此天网，谅你插翅也难逃"/>
+	<Sound type="2" ID="235" branch="1" chrId="130" text="曹公智略，乃上天所授！"/>
+	<Sound type="2" ID="235" branch="1" chrId="130" text="天下大乱，群雄并起，必有命世！"/>
+
+	<!-- 张星彩 -->
+    <Sound type="2" ID="226" branch="1" chrId="124" text="愿尽己力，为君分忧"/>
+	<Sound type="2" ID="226" branch="2" chrId="124" text="抚慰军心，以安国事"/>
+	<Sound type="2" ID="227" branch="1" chrId="124" text="父亲未尽之业，由我继续"/>
+	<Sound type="2" ID="227" branch="2" chrId="124" text="咆哮沙场，万夫不敌"/>
+	
+	
+	<!-- 韩浩史涣 -->
+    <Sound type="2" ID="478" branch="1" chrId="322" text="行军须慎，谋断当决"/>
+	<Sound type="2" ID="478" branch="2" chrId="322" text="良机虽去，尚可截资断源"/>
+	<Sound type="2" ID="479" branch="1" chrId="322" text="非常之机，当行非常之计！"/>
+	<Sound type="2" ID="479" branch="2" chrId="322" text="不必从言，自有主断"/>
+	
+	<!-- 陈群 -->
+    <Sound type="2" ID="480" branch="1" chrId="323" text="定品寻良骥，中正探人杰"/>
+	<Sound type="2" ID="480" branch="2" chrId="323" text="取才赋职，论能行赏"/>
+	<Sound type="2" ID="481" branch="1" chrId="323" text="法礼有度，恩威并施"/>
+	<Sound type="2" ID="481" branch="2" chrId="323" text="礼法容情，皇恩浩荡"/>
+	
+	<!-- 吴懿 -->
+    <Sound type="2" ID="482" branch="1" chrId="324" text="袭敌千里，溃敌百步！"/>
+	<Sound type="2" ID="482" branch="2" chrId="324" text="奔战万里，袭关斩将"/>
+	
+	<!-- 孙鲁班 -->
+    <Sound type="2" ID="486" branch="1" chrId="327" text="你可别不识抬举"/>
+	<Sound type="2" ID="486" branch="2" chrId="327" text="你也休想置身事外！"/>
+	<Sound type="2" ID="487" branch="1" chrId="327" text="是谁借给你的胆子？"/>
+	<Sound type="2" ID="487" branch="2" chrId="327" text="就凭你，还想算计于我"/>
+	
+	<!-- 于禁 -->
+	<Sound type="2" ID="238" branch="1" chrId="160" text="驻军严整，敌军自乱。"/>
+	<Sound type="2" ID="238" branch="2" chrId="160" text="安营驻寨，严守城防。"/>
+	<Sound type="2" ID="238" branch="3" chrId="160" text="不动如泰山。"/>
+	<Sound type="2" ID="238" branch="4" chrId="160" text="纪法严明，无懈可击。"/>
+	
+	<!-- 标华雄 -->
+    <Sound type="2" ID="495" branch="1" chrId="214" text="大人有大量，不和你计较"/>
+	<Sound type="2" ID="495" branch="2" chrId="214" text="哼，先让你尝点甜头"/>
+	
+	<!-- 标袁术 -->
+    <Sound type="2" ID="496" branch="1" chrId="215" text="归顺于我，封爵商地"/>
+	<Sound type="2" ID="496" branch="2" chrId="215" text="真命天子，八方拜服"/>
+	<Sound type="2" ID="497" branch="1" chrId="215" text="你，你这是反啦"/>
+	<Sound type="2" ID="497" branch="2" chrId="215" text="弑君之罪，当诛九族"/>
+	
+	<!-- 将四曹真 -->
+    <Sound type="2" ID="477" branch="1" chrId="321" text="筑城固守，司敌备战"/>
+	<Sound type="2" ID="477" branch="2" chrId="321" text="徒手之敌，能奈我何"/>
+	
+	<!-- 将四周仓 -->
+    <Sound type="2" ID="483" branch="1" chrId="325" text="为将军提刀携马，万死不辞"/>
+	<Sound type="2" ID="483" branch="2" chrId="325" text="驱刀飞血，直取寇首！"/>
+	
+	<!-- 将四张松 -->
+    <Sound type="2" ID="484" branch="1" chrId="326" text="容我过目，即刻咏来。"/>
+	<Sound type="2" ID="484" branch="2" chrId="326" text="文书强识，才可博于运筹"/>
+	<Sound type="2" ID="485" branch="1" chrId="326" text="将军莫虑，且看此图。"/>
+	<Sound type="2" ID="485" branch="2" chrId="326" text="吾以诚心相献，君何踌躇不前"/> 
+	
+	<!-- 将四朱桓 -->
+    <Sound type="2" ID="488" branch="1" chrId="328" text="无名小卒，可敢再前进一步？"/>
+	<Sound type="2" ID="488" branch="2" chrId="328" text="予以小利，必有大获"/>
+			
+	<!-- 将四顾雍 -->
+    <Sound type="2" ID="489" branch="1" chrId="329" text="此需斟酌一二"/>
+	<Sound type="2" ID="489" branch="2" chrId="329" text="审时度势，乃容万变"/>
+	<Sound type="2" ID="490" branch="1" chrId="329" text="诸君看仔细了"/>
+	<Sound type="2" ID="490" branch="2" chrId="329" text="公正无私，秉持如一"/> 
+	<!-- 将四沮授 -->
+    <Sound type="2" ID="491" branch="1" chrId="330" text="事须缓图，欲速不达也"/>
+	<Sound type="2" ID="491" branch="2" chrId="330" text="由缓至急，循循而进"/>
+	<Sound type="2" ID="492" branch="1" chrId="330" text="命系袁氏，一心向北"/>
+	<Sound type="2" ID="492" branch="2" chrId="330" text="矢志于北，尽忠于国"/> 
+	<!-- 将四蔡夫人 -->
+    <Sound type="2" ID="293" branch="1" chrId="331" text="想削我蔡氏，痴心妄想！"/>
+	<Sound type="2" ID="293" branch="2" chrId="331" text="此人不露锋芒，断不可留"/>
+	<Sound type="2" ID="294" branch="1" chrId="331" text="献荆襄九郡，图一世之安。"/>
+	<Sound type="2" ID="294" branch="2" chrId="331" text="丞相挟天威而至，吾等安敢不降？"/> 
+	
+	<!-- sp孙鲁育 -->
+    <Sound type="2" ID="246" branch="1" chrId="135" text="萧墙之乱，宫闱之幸，实为吴国之祸啊！"/>
+	<Sound type="2" ID="246" branch="2" chrId="135" text="若要动手，就请先杀我吧"/>
+	<Sound type="2" ID="247" branch="1" chrId="135" text="立储乃国家大事，我们姐妹不便参与！"/>
+	<Sound type="2" ID="247" branch="2" chrId="135" text="只求相夫教子，不求参政议事！"/> 
+	
+	<!-- SP文聘 -->
+    <Sound type="2" ID="248" branch="1" chrId="136" text="再敢来犯，仍叫你无功而返！"/>
+	<Sound type="2" ID="248" branch="2" chrId="136" text="江夏防线，固若金汤"/>
+
+	<!-- 潘凤 -->
+    <Sound type="2" ID="2111" branch="3" chrId="127" text="大斧到处，片甲不留！"/>
+	<Sound type="2" ID="2111" branch="4" chrId="127" text="你可接得住我一斧？"/>
+	
+		
+	<!--1v1场专用配音-->
+	
+	<!-- 大乔国色 -->
+	<Sound type="2" ID="60" branch="5" chrId="3029" text="请休息吧"/>
+	<Sound type="2" ID="60" branch="6" chrId="3029" text="你累了"/>
+	
+	<!-- 貂蝉闭月 -->
+	<Sound type="2" ID="67" branch="5" chrId="3037" text="喜欢吗？你没有哦"/>
+	<Sound type="2" ID="67" branch="6" chrId="3037" text="小女子这厢谢过了~"/>
+	
+	<!-- 关羽武圣 -->
+	<Sound type="2" ID="33" branch="3" chrId="3013" text="关羽在此，尔等受死。"/>
+	<Sound type="2" ID="33" branch="4" chrId="3013" text="观尔乃插标卖首。"/>
+	
+	<!-- 马超铁骑 -->
+	<Sound type="2" ID="38" branch="3" chrId="3017" text="金戈铁马，势不可挡"/>
+	<Sound type="2" ID="38" branch="4" chrId="3017" text="这一击，叫你避无可避！"/>
+	
+	<!-- 马超骁袭-->
+	<Sound type="2" ID="4052" branch="1" chrId="3017" text="快马突袭！"/>
+	<Sound type="2" ID="4052" branch="2" chrId="3017" text="突入敌阵！"/>
+	
+	<!-- 孟获蛮裔-->
+	<Sound type="2" ID="4054" branch="1" chrId="3022" text="巨象阵迎敌！"/>
+	<Sound type="2" ID="4054" branch="2" chrId="3022" text="子弟兵们，跟我上！！"/>
+	
+	<!-- 孟获再起-->
+	<Sound type="2" ID="116" branch="3" chrId="3022" text="我还能再战！"/>
+	<Sound type="2" ID="116" branch="4" chrId="3022" text="怎么能输给你！"/>
+	
+	<!-- 庞德猛进-->
+	<Sound type="2" ID="100" branch="3" chrId="3039" text="休想全身而退！"/>
+	<Sound type="2" ID="100" branch="4" chrId="3039" text="杀到你丢盔卸甲！"/>
+	
+	<!-- 庞德骁袭-->
+	<Sound type="2" ID="4052" branch="3" chrId="3039" text="先吃我一刀！"/>
+	<Sound type="2" ID="4052" branch="4" chrId="3039" text="先下手为强！"/>
+	
+	<!-- 夏侯渊神速-->
+	<Sound type="2" ID="73" branch="5" chrId="3008" text="你已经死了！"/>
+	<Sound type="2" ID="73" branch="6" chrId="3008" text="神速进击，攻敌不备！"/>
+	
+	<!-- 夏侯渊肃姿-->
+	<Sound type="2" ID="4056" branch="1" chrId="3008" text="来来来！清点缴获！哈哈哈"/>
+	<Sound type="2" ID="4056" branch="2" chrId="3008" text="抢夺资材，快，快，快！"/>
+	
+	<!-- 孙尚香枭姬-->
+	<Sound type="2" ID="41" branch="3" chrId="3031" text="你可要看好了~"/>
+	<Sound type="2" ID="41" branch="4" chrId="3031" text="谁说女子不如男！"/>
+	
+	<!-- 孙尚香姻礼-->
+	<Sound type="2" ID="4060" branch="1" chrId="3031" text="这份大礼我收下啦~"/>
+	<Sound type="2" ID="4060" branch="2" chrId="3031" text="小女子谢过将军，哈哈~"/>
+	
+	<!-- 许褚裸衣-->
+	<Sound type="2" ID="50" branch="3" chrId="3005" text="你准备好了么！"/>
+	<Sound type="2" ID="50" branch="4" chrId="3005" text="喝啊！"/>
+	
+	<!-- 许褚挟缠-->
+	<Sound type="2" ID="4055" branch="3" chrId="3005" text="休走！你我今日定要分个胜负！"/>
+	<Sound type="2" ID="4055" branch="4" chrId="3005" text="不是你死，便是我亡"/>
+	
+	<!-- 刘备仁望-->
+	<Sound type="2" ID="4050" branch="1" chrId="3012" text="民心，就是最好的武器！"/>
+	<Sound type="2" ID="4050" branch="2" chrId="3012" text="仁德之世，岂能毁于你手！"/>
+	
+	<!-- 吕蒙博图-->
+	<Sound type="2" ID="4058" branch="1" chrId="3026" text="今日起兵，渡江攻敌！"/>
+	<Sound type="2" ID="4058" branch="2" chrId="3026" text="时机已到，全军出击！"/>
+	
+	<!-- 吕蒙慎据-->
+	<Sound type="2" ID="4057" branch="1" chrId="3026" text="谨慎为妙"/>
+	<Sound type="2" ID="4057" branch="2" chrId="3026" text="时机未到"/>
+	
+	<!-- SP孙尚香 良助 -->
+	<Sound type="2" ID="250" branch="1" chrId="103" text="吾愿携弩征战沙场，助君一战！"/>
+	<Sound type="2" ID="250" branch="2" chrId="103" text="两国结盟，你我都是一家人！"/>
+	<!-- SP孙尚香 返乡 -->
+	<Sound type="2" ID="251" branch="1" chrId="103" text="兄命难违，从此两别。"/>
+	<Sound type="2" ID="251" branch="2" chrId="103" text="今昔一别，不知何日再见…"/>	
+	<!-- SP孙尚香 枭姬 -->
+	<Sound type="2" ID="41" branch="5" chrId="103" text="弓马何须忌红妆。"/>
+	<Sound type="2" ID="41" branch="6" chrId="103" text="双剑夸巧,不让须眉。"/>
+	
+	<!-- SP关羽 武圣 -->
+	<Sound type="2" ID="33" branch="5" chrId="106" text="以义传魂，以武入圣！"/>
+	<Sound type="2" ID="33" branch="6" chrId="106" text="义击逆流，武安黎庶。"/>
+	<!-- SP关羽 单骑 -->
+	<Sound type="2" ID="207" branch="1" chrId="106" text="单骑护嫂千里，只为桃园之义！"/>
+	<Sound type="2" ID="207" branch="2" chrId="106" text="独身远涉，赤心归国。"/>	
+
+	<!-- SP姜维 困奋 -->
+	<Sound type="2" ID="255" branch="1" chrId="139" text="纵使困顿难行，亦当砥砺奋进！"/>
+	<Sound type="2" ID="256" branch="1" chrId="139" text="兴蜀需时，众将切勿惫怠！"/>
+	<!-- SP姜维 逢亮 -->
+	<Sound type="2" ID="257" branch="1" chrId="139" text="得遇丞相，再生之德。"/>
+	<Sound type="2" ID="257" branch="2" chrId="139" text="丞相大义，维岂有不从之理！"/>	
+	<!-- SP姜维 挑衅 -->
+	<Sound type="2" ID="125" branch="5" chrId="139" text="今日天公作美，怎能不战而退？"/>
+	<Sound type="2" ID="125" branch="6" chrId="139" text="贼将无胆,何不早降！"/>
+		
+	<!-- ====================== -->
+	<!-- Characters' dead words -->
+	<!-- ====================== -->
+	<!--Sound type="3" ID="1" text="这就是桃园吗？"/-->
+</Sounds>

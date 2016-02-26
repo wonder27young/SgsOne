@@ -15,6 +15,8 @@ import com.wonder.sgsone.common.Zym;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by u6031313 on 2/23/2016.
@@ -22,10 +24,12 @@ import java.io.InputStream;
 public abstract class BaseView extends View {
     View mView = inflate(getContext(), R.layout.common,null);
     AbsoluteLayout mAbsoluteLayout;
+    Timer timer;
     protected Paint paint = new Paint();
     public BaseView(Context context) {
         super(context);
         this.mView.setBackgroundColor(0);
+        this.mAbsoluteLayout = ((AbsoluteLayout)this.mView.findViewById(R.id.CommonAbsoluteLayout));
     }
     protected void addToLayout(View paramView)
     {
@@ -40,9 +44,9 @@ public abstract class BaseView extends View {
                 return;
             }
         }
-        catch (Exception localException)
+        catch (Exception ex)
         {
-            localException.printStackTrace();
+            ex.printStackTrace();
             removeFromLayout(paramView);
             addToLayout(paramView);
             return;
@@ -122,4 +126,36 @@ public abstract class BaseView extends View {
     {
         return -1;
     }
+    protected void onDraw(Canvas canvas)
+    {
+        super.onDraw(canvas);
+        paint(canvas);
+    }
+
+    protected abstract void paint(Canvas canvas);
+
+    protected void StartTimerTask(boolean paramBoolean, long delay, long period)
+    {
+        if (paramBoolean)
+        {
+            if (this.timer != null) {
+                this.timer.cancel();
+            }
+        }
+        if (this.timer == null)
+        {
+            TimerTask task = new TimerTask()
+            {
+                public void run()
+                {
+                    doTimerTask();
+                }
+            };
+            this.timer = new Timer(true);
+            this.timer.schedule(task, delay, period);
+        }
+        this.timer.cancel();
+        return;
+    }
+
 }

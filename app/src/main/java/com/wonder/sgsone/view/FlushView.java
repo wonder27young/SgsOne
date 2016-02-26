@@ -8,7 +8,7 @@ import com.wonder.sgsone.MainActivity;
 /**
  * Created by u6031313 on 2/23/2016.
  */
-public class FlushView extends BaseView {
+public class FlushView extends View {
 
     public FlushView(Context context,MainActivity mainActivity) {
         super(context);
